@@ -39,18 +39,7 @@ def all_tests_driver(browser, device_type):
     else:
         raise Exception("please choose between chrome or firefox")
 
-    # devices = ['mobile','desktop',] #'tablet', 'laptop'
-    # for device_type in devices:
-    if device_type == 'mobile':
-        driver.set_window_size(375, 867)
-    elif device_type == 'tablet':
-        driver.set_window_size(1138, 712)
-    elif device_type == 'laptop':
-        driver.set_window_size(1366, 768)
-    elif device_type == 'desktop':
-        driver.maximize_window()
-        # screen_size = driver.get_window_size()
-
+    driver.maximize_window()
     driver.implicitly_wait(6)
     yield driver
     driver.quit()
@@ -60,10 +49,10 @@ def pytest_html_report_title(report):
     report.title = "QA Automation Test Report"
 
 def pytest_html_results_table_header(cells):
-    cells.insert(2, " Device ")
-    cells.insert(3, " Browser ")
     cells.insert(2, selected_device_type)
     cells.insert(3, selected_browser)
+    cells.insert(2, " Device ")
+    cells.insert(3, " Browser ")
 
 # def pytest_html_results_table_row(report, cells):
 #     # device = report.extra_device if hasattr(report, "extra_device") else "N/A"
