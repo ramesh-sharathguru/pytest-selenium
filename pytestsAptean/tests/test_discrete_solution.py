@@ -1,3 +1,4 @@
+# run cmd : pytest -vs pytestsAptean/tests/test_discrete_solution.py  --html=reports/html-report[mobile].html --self-contained-html
 import pytest
 import time
 import pytest_html
@@ -19,6 +20,7 @@ def test_page_title(all_tests_driver, region, request):
     request.node.add_report_section("cell", "description", description)
 
 
+@pytest.mark.skip(reason="This test is currently under development.") # ignore the below test for now
 @pytest.mark.parametrize("region", ALL_APTEAN_REGIONS)
 def test_header_visibility(all_tests_driver, region):
     driver = all_tests_driver

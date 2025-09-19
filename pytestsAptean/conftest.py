@@ -1,13 +1,23 @@
+# my conftest
 import time
 import pytest
 import pytest_html
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
+
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
+
 from selenium.webdriver.chrome.options  import Options
+
+# html report generate library
+
+import datetime
+import platform
+import os
+from py.xml import html
 
 driver, selected_browser, selected_device_type = (None, None, None)
 
@@ -17,18 +27,28 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session")
 def browser(request):
-    return request.config.getoption("--browser")
+    global selected_browser
+    selected_browser = request.config.getoption("--browser")
+    return selected_browser
 
 @pytest.fixture(scope="session")
 def device_type(request):
-    return request.config.getoption("--device_type")
+    global selected_device_type
+    selected_device_type = request.config.getoption("--device_type")
+    return selected_device_type
 
 # @pytest.fixture(scope="session")
 @pytest.fixture(scope="function")
 def all_tests_driver(browser, device_type):
     options = Options()
     options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--remote-debugging-port=9222")
+    # chrome_options.add_argument("--headless")  # optional: run headless
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-gpu")
+
     global driver, selected_browser, selected_device_type
+
     selected_browser = browser
     selected_device_type = device_type
 
@@ -37,43 +57,35 @@ def all_tests_driver(browser, device_type):
     elif browser.lower() == "firefox":
         driver = webdriver.Firefox(service=GeckoDriverManager().install())
     else:
-        raise Exception("please choose between chrome or firefox")
+        raise Exception("please choose between only available browser's : chrome or firefox")
 
     driver.maximize_window()
     driver.implicitly_wait(6)
     yield driver
     driver.quit()
 
-# Use this hook to add environment info to the HTML report
+#HTML report modifications ------------
+
 def pytest_html_report_title(report):
+    """Customize the HTML report title"""
     report.title = "QA Automation Test Report"
 
 def pytest_html_results_table_header(cells):
-    cells.insert(2, selected_device_type)
-    cells.insert(3, selected_browser)
-    cells.insert(2, " Device ")
-    cells.insert(3, " Browser ")
-
-# def pytest_html_results_table_row(report, cells):
-#     # device = report.extra_device if hasattr(report, "extra_device") else "N/A"
-#     # browser = report.extra_browser if hasattr(report, "extra_browser") else "N/A"
-#     cells.insert(2, selected_device_type)
-#     cells.insert(3, selected_browser)
-
-# # Attach device/browser info to each test report
-# @pytest.hookimpl(hookwrapper=True)
-# def pytest_runtest_makereport(item, call):
-#     global driver
-#     outcome = yield
-#     report = outcome.get_result()
-#     report.extra_device = item.config.getoption("device")
-#     report.extra_browser = item.config.getoption("browser")
-#
-#     if report.when == "call" and report.failed:
-#         driver = item.funcargs.get("driver")
-#         if driver:
-#             screenshot_path = f"reports/screenshots/{item.name}.png"
-#             driver.save_screenshot(screenshot_path)
+    """Customize table headers"""
+    metadata_block = html.div(
+        html.ul([
+            html.li(html.b('Project: QA Testing - Campaign Page \'s ')) ,
+            html.p(html.i("'UI/UX Validatation' and 'Responsive Design Testing'")),
+            html.li(html.b('Tester : aptean QA ')) ,
+            html.li(html.b('Environment: dev ')),
+            html.li(html.b(f'Browser: {selected_browser}')),
+            html.li(html.b(f'Device Type : {selected_device_type}')),
+            html.li(html.b(f'Platform : {platform.platform()}')),
+            html.li(html.b(f'Python Version : {platform.python_version()}')),
+            html.li(html.b(f'Execution Time : {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}')),
+        ]) )
+    cells.insert(2, metadata_block)
 
 
+# end of HTML report modifications ------------
 

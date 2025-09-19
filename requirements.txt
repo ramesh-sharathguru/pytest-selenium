@@ -3,3 +3,12 @@ pytest-html
 selenium
 webdriver-manager
 pytest-assume
+
+axe-selenium-python # to test accessiablity
+requests
+pillow
+
+pandas
+openpyxl
+
+beautifulsoup4
