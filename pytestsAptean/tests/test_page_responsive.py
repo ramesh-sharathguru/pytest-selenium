@@ -30,8 +30,8 @@ AUTHOR_PAGE = "https://aptean-website-dev.azurewebsites.net/en-US/author/jack"
 APTEAN_REGION = ['en-US', 'fr-CA','es-US', 'nl-NL', 'de-DE']
 
 DEVICE_TYPE = {
-    # "tablet":[1138, 712],
-    # "laptop":[1366,768],
+    "tablet":[1138, 712],
+    "laptop":[1366,768],
     "mobile":[375,767],
 }
 

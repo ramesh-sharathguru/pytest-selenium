@@ -6,17 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d5753f41-7cc6-4244-88bc-adb4862abc75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytestsAptean/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pytestsAptean/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pytestsAptean/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytestsAptean/reports/assets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytestsAptean/reports/html-report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytestsAptean/reports/test_results.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytestsAptean/tests/test_discrete_solution.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/tests/test_discrete_solution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytestsAptean/tests/test_aptean_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/tests/test_aptean_website.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytestsAptean/tests/test_aptean_webpage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytestsAptean/tests/test_page_accessibility.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/tests/test_page_accessibility.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pytestsAptean/tests/test_page_responsive.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytestsAptean/tests/test_page_responsive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/html-report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/html-report[desktop].html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/html-report[desktop].html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/html-report[mobile].html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/html-report[aptean].html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/html-report[aptean].html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +50,18 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/skodihalli/OneDrive - Aptean-online/Desktop/pytest_aptean/pytestsAptean/tests",
+    "last_opened_file_path": "C:/Users/skodihalli/OneDrive - Aptean-online/Desktop/pytest_aptean/pytestsAptean",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\skodihalli\OneDrive - Aptean-online\Desktop\pytest_aptean\pytestsAptean" />
       <recent name="C:\Users\skodihalli\OneDrive - Aptean-online\Desktop\pytest_aptean\pytestsAptean\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\skodihalli\OneDrive - Aptean-online\Desktop\pytest_aptean\pytestsAptean" />
       <recent name="C:\Users\skodihalli\OneDrive - Aptean-online\Desktop\pytest_aptean\pytestsAptean\tests" />
     </key>
   </component>
