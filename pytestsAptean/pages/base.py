@@ -1,9 +1,9 @@
 # ============= pages/base_page.py =============
+import os
+import sys
+import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
-import os
-
 
 class StepLogger:
     """Simple step tracking for HTML reports"""
@@ -12,40 +12,23 @@ class StepLogger:
         self.step_number = 0
         self.all_steps = []
 
-    def add_step(self, what_happened, details=""):
+    def add_step(self, what_happened, status="PASS"):
         """Add a step to our report"""
+        time.sleep(2)
         self.step_number += 1
         step = {
             'number': self.step_number,
             'action': what_happened,
-            'details': details,
-            'status': 'PASS'
+            'status': status,
         }
         self.all_steps.append(step)
-        print(f"Step {self.step_number}: {what_happened}")
-        if details:
-            print(f" Details: {details}")
-
-    def get_all_steps_html(self):
-        """Create HTML table of all steps"""
-        html = "<h3>Test Steps:</h3><table border='1'>"
-        html += "<tr><th>Step</th><th>Action</th><th>Details</th><th>Status</th></tr>"
-
-        for step in self.all_steps:
-            html += f"<tr>"
-            html += f"<td>{step['number']}</td>"
-            html += f"<td>{step['action']}</td>"
-            html += f"<td>{step['details']}</td>"
-            html += f"<td>{step['status']}</td>"
-            html += f"</tr>"
-
-        html += "</table>"
-        return html
-
+        print(f"Step {self.step_number}: {what_happened} - {status}")
+        if status == "FAIL":
+            print(f"Step {self.step_number}: {what_happened} - {status}")
+            sys.exit(1)
 
 # Create one logger for the whole test
 step_tracker = StepLogger()
-
 
 class BasePage:
     """Common functions that all pages can use"""

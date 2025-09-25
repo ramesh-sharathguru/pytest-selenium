@@ -2,6 +2,8 @@ import time
 from selenium.webdriver.common.by import By
 from pytestsAptean.pages.base import BasePage, step_tracker
 
+import requests
+
 class IndustriesPage:
 
     def __init__(self, driver):
@@ -23,56 +25,141 @@ class IndustriesPage:
         self.food_beverage_spices_ingredients = (By.XPATH, "//app-sub-menu//div/a[contains(text(),'Spices and Ingredients')]")
 
     def scroll_into_view(self,web_loc):
-        time.sleep(4)
+        time.sleep(2)
         web_ele = self.driver.find_element(*web_loc)
         self.driver.execute_script("arguments[0].scrollIntoView(true);",web_ele)
         return web_ele
 
-
     def industries_categories(self):
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+
         self.scroll_into_view(self.food_beverage_bakery).click()
+        step_tracker.add_step(" Bakery ", " click on Bakery ")
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_beverages).click()
+        step_tracker.add_step(" Beverages ", " click on 'Beverages' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_Confectionery).click()
+        step_tracker.add_step(" Confectionery ", " click on 'Confectionery' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_contract_manufacturing).click()
+        step_tracker.add_step(" Contract Manufacturing ", " click on 'contract manufacturing' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_dairy).click()
+        step_tracker.add_step(" Dairy ", " click on 'Dairy' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_fresh_produce_and_farming).click()
+        step_tracker.add_step(" fresh produce and farming ", " click on 'Fresh produce and farming' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_frozen_and_prepared_packaged_foods).click()
+        step_tracker.add_step(" Frozen and prepared packed foods ", " click on 'Frozen and Prepared packed foods' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_meat_seafood_poultry).click()
+        step_tracker.add_step(" Meat, seafood and Poultry ", " click on 'meat, seafood and poultry' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_sauces_dressing).click()
+        step_tracker.add_step(" Sauces and Dressing ", " click on 'Sauces and Dressing' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_snacks).click()
+        step_tracker.add_step(" snacks ", " click on 'snacks' ")
+         
 
         self.scroll_into_view(self.category_industry).click()
+        step_tracker.add_step(" Industry  ", " click on 'Industry' nav button ")
+         
+
         self.scroll_into_view(self.food_beverage).click()
+        step_tracker.add_step(" Food and Beverage ", " click on 'Food and Beverage' ")
+         
+
         self.scroll_into_view(self.food_beverage_spices_ingredients).click()
+        step_tracker.add_step(" spices ingredients ", " click on 'spices ingredients' ")
+         
+
 
 
 
